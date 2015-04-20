@@ -9,7 +9,7 @@ Classes:
 
 The world has a small grid. It controls turns and what the environment looks like to an animal.
 
-There are walls, empty space, and organisms(plant, animal) in the world.
+There are walls(?), empty space, and organisms(plant, animal) in the world.
 
 Every turn, the plants will expand to a neighbouring tile with some probability.
 
@@ -29,8 +29,22 @@ MVPs:
   - The grid knows what thing is at what space.
   - The grid can vaguely represent what is at each position.
   - There are wall objects
-  - 
 
 Bonus:
   - The grid is randomly generated
   - Bonus engine as above.
+
+Surrounding_space:
+  - Next number can be found with .next
+  - Next letter can be found with :A2.to_s.reverse.next.reverse.to_sym
+  - Last things are more difficult. You can do var = :B2.to_s.split('')[0].ord - 1 and then var.chr (And change the index to chose a number or letter)
+  - Also need a coordinates checker to make sure it's not off the world.
+
+Breeding:
+  - Maybe need a function to check whether a plant was just bred?
+
+Web interface:
+  - can perhaps use constants to store things as in battleships, however that could be very bad.
+  - maybe I should rewrite to use databases?
+  - if I do that, how do I then use javascript to act on the elements?
+    - Maybe that's easy in comparison.

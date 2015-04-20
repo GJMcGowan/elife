@@ -2,9 +2,12 @@ require 'world'
 
 describe World do
   let(:plant) { double :plant }
+  let(:grid) do
+    { A1: ' ', A2: ' ', A3: ' ', B1: ' ', B2: ' ', B3: ' ',
+      C1: ' ', C2: ' ', C3: ' ' }
+  end
   context 'Basic Functions' do
-    let(:grid) { ['#', ' ', ' '] }
-    let(:world) { World.new(grid) }
+    let(:world) { World.new }
     it('there is a grid') do
       expect(world.grid).to eq(grid)
     end
@@ -14,8 +17,7 @@ describe World do
     end
 
     it('the grid can contain a hash of coordinates') do
-      grid = { A1: '#', A2: ' ', A3: ' ' }
-      world = World.new(grid)
+      world = World.new
       expect(world.grid).to eq(grid)
     end
 
@@ -27,16 +29,20 @@ describe World do
       world.next_turn
       expect(world.turn).to eq(1)
     end
-  end
 
-  context('Plants') do
-    let(:grid) { [plant, ' ', ' '] }
-    let(:world) { World.new(grid) }
-    it('the grid can contain plants') do
+    it('the world can generate a board, based on a size') do
+      world.generate(3)
       expect(world.grid).to eq(grid)
     end
 
-    it('the grid can report on where all the plants are') do
+    it('the world can populate a board with plants, given a no. of plants') do
+    end
+  end
+
+  context('Plants') do
+    let(:world) { World.new }
+    it('the grid can contain plants') do
+      expect(world.grid).to eq(grid)
     end
   end
 end
