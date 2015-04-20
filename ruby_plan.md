@@ -48,3 +48,13 @@ Web interface:
   - maybe I should rewrite to use databases?
   - if I do that, how do I then use javascript to act on the elements?
     - Maybe that's easy in comparison.
+
+Database conversion:
+  - Table for 'grid'
+    - Can use methods to extract the grid from a database (bad idea probably)
+    - Could potentially rewrite to have each line of database be a grid item which stores a plant/animal/is empty (better)
+    - This would make it easier to put things on the page.
+  - Table for 'plants'?
+    - stores energy and position
+  - Table for 'animals'?
+    - stores energy and position

@@ -12,7 +12,7 @@ class World
     @turn += 1
     make_breed = []
     grid.each do |key, value|
-      value.class == Plant && !value.bred? ? make_breed << key : nil
+      value.class == Plant ? make_breed << key : nil
     end
     make_breed.each { |i| breed(i) }
   end
@@ -41,17 +41,21 @@ class World
     array = [] << key.next
     array << key.to_s.reverse.next.reverse.to_sym
     backwards(key, array)
-    array.select! { |item| grid.key?(item) }
-    puts array
+    array.select! { |item| grid.key?(item) && grid[item].class != Plant }
     array
   end
 
   def backwards(key, array)
-    var = key.to_s.split('')[0].ord - 1
-    letter_back = (var.chr + key[1]).to_sym
     var = key.to_s.split('')[1].ord - 1
     number_back = (key[0] + var.chr).to_sym
-    array.push(letter_back, number_back)
+    array << number_back
+    letter_backwards(key, array)
+  end
+
+  def letter_backwards(key, array)
+    var = key.to_s.split('')[0].ord - 1
+    letter_back = (var.chr + key[1]).to_sym
+    array << letter_back
   end
 
   def generate(size)

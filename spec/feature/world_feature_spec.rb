@@ -10,14 +10,14 @@ feature 'Basic Features: World' do
   end
 
   scenario 'the world can add plants to random positions' do
-    world.add_plants(2)
-    expect(world.plants).to eq(2)
+    world.add_plants(3)
+    expect(world.plants).to eq(3)
   end
 
   scenario 'the plants can reproduce' do
-    world.add_plants(1)
+    world.add_plants(2)
     world.next_turn
     expect(world.turn).to eq(1)
-    expect(world.plants).to eq(2)
+    expect(world.plants).to eq(4)
   end
 end
