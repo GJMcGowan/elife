@@ -179,7 +179,3 @@ View.prototype.find = function(ch) {
   if (found.length == 0) return null;
   return randomElement(found);
 };
-for (var i = 0; i < 5; i++) {
-  world.turn();
-  debug(world.toString());
-}
