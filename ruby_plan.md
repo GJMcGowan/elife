@@ -32,16 +32,10 @@ MVPs:
 
 Bonus:
   - The grid is randomly generated
-  - Bonus engine as above.
-
-Surrounding_space:
-  - Next number can be found with .next
-  - Next letter can be found with :A2.to_s.reverse.next.reverse.to_sym
-  - Last things are more difficult. You can do var = :B2.to_s.split('')[0].ord - 1 and then var.chr (And change the index to chose a number or letter)
-  - Also need a coordinates checker to make sure it's not off the world.
+  - Bonus engine as as above.
 
 Breeding:
-  - Maybe need a function to check whether a plant was just bred?
+  - Plants can sometimes not be placed if random stuff was very unlucky, as a plant hemmed in won't make more plants. This becomes more probable with more plants. This is only really a bad thing for tests, as in the real world it is a feature not a bug.
 
 Web interface:
   - can perhaps use constants to store things as in battleships, however that could be very bad.
