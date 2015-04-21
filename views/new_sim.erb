@@ -1,0 +1,10 @@
+Here is your new sim:
+
+<table style="width:100%">
+  <% @grid.each do |cell| %>
+    <tr>
+      <td><%= cell.column %><%= cell.row %>
+      <td><%= cell.value %>
+    </tr>
+  <% end %>
+</table>
